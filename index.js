@@ -71,7 +71,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
     } else {
         // User left the voice channel
         try {
-            oldMember.channel.leave(); // Leave with them
+            if (newMember.id == victim) oldMember.channel.leave(); // Leave with them
         } catch(e){}; // If we do get an error, it's probably that the bot doesn't have any VC to leave, nothing important
     }
 });
